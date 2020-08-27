@@ -1,7 +1,6 @@
 export default class InputParser {
   constructor() {
     console.log("input parser intialized");
-    this.articles = ["a", "an", "the"];
   }
 
   parse = (text) => {
@@ -9,6 +8,12 @@ export default class InputParser {
     console.log("Cleaned: " + clean);
     let words = this.toWords(clean);
     console.log("Words: " + words);
+    words = this.removeArticles(words);
+    console.log("removed articles: " + words);
+
+    //If after cleanup nothing is left
+    if (!words.length)
+      return `<span class="danger">I don't understand that command.</span>`;
 
     //Check if command is only one word
     if (words.length === 1) {
@@ -20,7 +25,7 @@ export default class InputParser {
         case "help":
           return this.help();
         default:
-          return "I don't understand that command.";
+          return `<span class="danger">I don't understand that command.</span>`;
       }
     }
 
@@ -34,7 +39,9 @@ export default class InputParser {
 	 <b><span class="success">List of available commands:</span></b><br>
 	 <b>help, h</b>: Shows help<br>
 	 <b>inventory, i:</b> Lists your inventory<br>
-	 <b>go, walk, move + direction:</b> Change player location 
+	 <b>go, walk, move + direction:</b> Change player location<br>
+	 <b>get, take, grab, pick up + object:</b> Adds object to inventory (if possible)<br>
+	 <b>look at, inspect, examine + object:</b> Provides object description<br>
   `;
 
   //Clean up spaces from front, back, and turn
@@ -63,13 +70,14 @@ export default class InputParser {
     return result;
   };
 
-  cleanupArticles = (words) => {
-    this.articles.forEach((article) => {
-      while (words.indexOf(article) != -1) {
-        text = text.replace(article, "");
-      }
+  /**
+   * @param words array
+   * @returns array without articles
+   */
+  removeArticles = (words) => {
+    let articles = ["a", "an", "the"];
+    return words.filter((word) => {
+      return !articles.includes(word);
     });
-
-    return text;
   };
 }

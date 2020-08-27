@@ -1,93 +1,99 @@
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #game {
-	box-sizing: border-box;
-	display: grid;
-	grid-template-rows: auto 50px;
-	grid-template-areas:
-		'output'
-		'input';
-	height: 100vh;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto 50px;
+  grid-template-areas:
+    "output"
+    "input";
+  height: 100vh;
 }
 
 #game section.text-output {
-	padding: 20px;
-	grid-area: output;
-	overflow-y: scroll;
-	background-color: #222225;
+  padding: 20px;
+  grid-area: output;
+  overflow-y: scroll;
+  background-color: #222225;
 }
 
 #game section.text-output p {
-	box-sizing: border-box;
-	line-height: 1.6em;
-	font-family: 'Fira Code', sans-serif;
-	font-size: 14px;
-	max-width: 600px;
-	margin: 0 auto 20px auto;
-	color: #a2a3a7;
+  box-sizing: border-box;
+  line-height: 1.6em;
+  font-family: "Fira Code", sans-serif;
+  font-size: 14px;
+  max-width: 600px;
+  margin: 0 auto 15px auto;
+  color: #a2a3a7;
 }
 
 #game section.text-output p:last-of-type {
-	color: #dadbdf;
+  color: #dadbdf;
 }
 
 #game section.text-output b {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 #game section.text-output i {
-	font-style: italic;
+  font-style: italic;
 }
 
 #game section.text-output span.danger {
-	color: #cc4162;
+  color: #cc4162;
 }
 
 #game section.text-output span.info {
-	color: #60bdf5;
+  color: #60bdf5;
 }
 
 #game section.text-output span.success {
-	color: #b6db67;
+  color: #b6db67;
 }
 
 #game section.text-output span.alert {
-	color: #cfa540;
+  color: #cfa540;
 }
 
 #game section.text-output p.user-command {
-	color: #fff;
-	font-weight: bold;
-	margin-bottom: 5px;
-	border-top: 1px dashed #38383d;
-	padding-top: 20px;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 5px;
+  border-top: 1px dashed #38383d;
+  padding-top: 20px;
 }
 
 #game section.text-output p span.game-title {
-	font-size: 17px;
-	font-weight: bold;
-	color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+  color: #fff;
+}
+
+#game section.text-output p span.room-title {
+  color: #60bdf5;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 /* input styles */
 #game section.text-input {
-	background: green;
-	grid-area: input;
+  background: green;
+  grid-area: input;
 }
 
 #game section.text-input #command {
-	background: url('images/term-arrow.png') 5px 50% no-repeat #1d1d1f;
-	border: 0;
-	position: sticky;
-	bottom: 0;
-	width: 100%;
-	padding: 15px 15px 15px 35px;
-	margin: 0;
-	color: #dadbdf;
-	font-family: 'Fira Code', sans-serif;
-	border-top: 1px solid #1d1d1f;
-	height: 50px;
-	outline: none;
+  background: url("images/term-arrow.png") 5px 50% no-repeat #1d1d1f;
+  border: 0;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 15px 15px 35px;
+  margin: 0;
+  color: #dadbdf;
+  font-family: "Fira Code", sans-serif;
+  border-top: 1px solid #1d1d1f;
+  height: 50px;
+  outline: none;
 }
