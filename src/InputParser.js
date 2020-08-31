@@ -1,6 +1,6 @@
 export default class InputParser {
   constructor() {
-    console.log("input parser intialized");
+    console.log("InputParser intialized.");
   }
 
   parse = (text) => {
@@ -12,37 +12,23 @@ export default class InputParser {
     console.log("removed articles: " + words);
 
     //If after cleanup nothing is left
-    if (!words.length)
-      return `<span class="danger">I don't understand that command.</span>`;
+    if (!words.length) return `INVALID_INPUT`;
 
     //Check if command is only one word
     if (words.length === 1) {
       switch (words[0]) {
         case "i":
         case "inventory":
-          return `<span class="success">Inventory</span>`;
+          return `SHOW_INVENTORY`;
         case "h":
         case "help":
-          return this.help();
+          return `SHOW_HELP`;
         default:
-          return `<span class="danger">I don't understand that command.</span>`;
+          return `INVALID_INPUT`;
       }
     }
-
     return 'As you step foot in the cell, sound of chains rattling from the ceiling makes you realize <span class="alert"> you are not alone</span>.';
   };
-
-  /**
-   * Help
-   */
-  help = () => `
-	 <b><span class="success">List of available commands:</span></b><br>
-	 <b>help, h</b>: Shows help<br>
-	 <b>inventory, i:</b> Lists your inventory<br>
-	 <b>go, walk, move + direction:</b> Change player location<br>
-	 <b>get, take, grab, pick up + object:</b> Adds object to inventory (if possible)<br>
-	 <b>look at, inspect, examine + object:</b> Provides object description<br>
-  `;
 
   //Clean up spaces from front, back, and turn
   //all double spaces into single across the string
